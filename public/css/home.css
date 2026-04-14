@@ -1,0 +1,68 @@
+.conteudo{
+  margin: 5vh auto;
+  width: 80vw;
+}
+
+.titulo{
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--vermelho);
+  color: var(--branco);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.conteudo-caixa{
+  width: 100%;
+  padding: 20px;
+  background-color: var(--branco);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.foto{
+  width: 100%;
+  height: 100%;
+  margin: 5vh auto;
+}
+
+.diferenciais{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.difer-item{
+  border-right: 2px solid var(--cinza);
+  margin-right: 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.difer-item:last-child{
+  border: none;
+}
+
+.difer-item h3{
+  margin-bottom: 2vh;
+}
+
+.difer-item p{
+  margin-bottom: 2vh;
+}
+
+.imagem{
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  max-width: 100px;
+  max-height: 100px;
+}
