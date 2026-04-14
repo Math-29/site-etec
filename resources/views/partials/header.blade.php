@@ -4,10 +4,10 @@
             <img src="{{ asset('assets/cps-logo.png') }}" alt="Centro Paula Souza" class="logo">
             <img src="{{ asset('assets/etec-logo.png') }}" alt="Etec da Zona Leste" class="logo">
         </div>
-        <form action="{{ route('sugestoes') }}" method="GET" class="pesquisa">
+        <form class="pesquisa">
     
         <div class="linha-pesquisa">
-            <input type="text" id="pesquisa" class="barra-pesquisa" placeholder="Buscar..." autocomplete="off">
+            <input type="text" id="pesquisa" class="barra-pesquisa" placeholder="Buscar..." autocomplete="off" name="input">
             <button type="submit" class="botao-pesquisa">🔍</button>
         </div>
 

@@ -201,6 +201,12 @@ ul{
   color: var(--branco);
 }
 
+mark {
+  background-color: yellow;
+  padding: 2px;
+  border-radius: 3px;
+}
+
 .banner{
   width: 80vw;
   padding: 30px;

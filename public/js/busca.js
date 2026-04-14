@@ -15,17 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const response = await fetch(`/sugestoes?q=${valor}`);
+        const response = await fetch(`/sugestoes?input_user=${valor}`);
         const dados = await response.json();
 
         dados.forEach(item => {
             const div = document.createElement("div");
             div.classList.add("sugestao-item");
-            div.textContent = item;
+
+            div.textContent = item.texto;
 
             div.onclick = () => {
-                input.value = item;
-                sugestoesBox.innerHTML = "";
+                window.location.href = `/${item.pagina}?input_user=${encodeURIComponent(item.texto)}`;
             };
 
             sugestoesBox.appendChild(div);
@@ -36,5 +36,25 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             pesquisa.classList.remove('ativa');
         }
+    });
+
+    function destacarTexto() {
+        const params = new URLSearchParams(window.location.search);
+        const termo = params.get('input_user');
+
+        if (!termo) return;
+
+        const elementos = document.querySelectorAll("p, h1, h2, h3, span, li, a");
+
+        elementos.forEach(el => {
+            const regex = new RegExp(`(${termo})`, 'gi');
+            el.innerHTML = el.innerHTML.replace(regex, '<mark>$1</mark>');
+        });
+    }
+
+    window.addEventListener("load", destacarTexto);
+
+    pesquisa.addEventListener("submit", (e) => {
+        e.preventDefault();
     });
 });

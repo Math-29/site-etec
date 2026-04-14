@@ -8,9 +8,9 @@ class BuscaController extends Controller
 {
     public function sugestoes(Request $request)
     {
-        $q = strtolower(trim($request->input('q')));
+        $input_user = strtolower(trim($request->input('input_user')));
 
-        if (strlen($q) < 3) {
+        if (strlen($input_user) < 3) {
             return response()->json([]);
         }
 
@@ -132,13 +132,13 @@ class BuscaController extends Controller
 
         foreach ($conteudo as $item) {
 
-            if (str_contains($item['texto'], $q)) {
+            if (str_contains($item['texto'], $input_user)) {
                 $resultados[] = $item;
                 continue;
             }
 
             foreach ($item['tags'] as $tag) {
-                if (str_contains($tag, $q)) {
+                if (str_contains($tag, $input_user)) {
                     $resultados[] = $item;
                     break;
                 }
